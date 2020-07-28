@@ -1,0 +1,3 @@
+export const STORE_FETCHED_SHIPS = 'STORE_FETCHED_SHIPS';
+export const ALL_PILOTS = 'ALL_PILOTS';
+export const STORE_POST = 'STORE_POST';

@@ -1,0 +1,10 @@
+@import '~normalize-scss';
+@include normalize();
+
+@import 'variables';
+@import '~vue-range-component/dist/vue-range-slider.css';
+@import "~vue-select/src/scss/vue-select.scss";
+
+@import 'general';
+@import 'header';
+

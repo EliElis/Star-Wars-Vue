@@ -1,0 +1,85 @@
+@import 'variables';
+
+.intro{
+  padding-bottom: 9%;
+  &__inner{
+    display: flex;
+    padding: 65px 60px 0 25px;
+    background-color: $black;
+    border-radius: 20px;
+
+  }
+  &__img{
+    max-width: 412px;
+    width: 100%;
+    margin-right: 30px;
+    margin-bottom: -12%;
+    img{
+      width: 100%;
+    }
+
+  }
+  h1{
+    margin: 77px 0 -25px;
+    color: $white;
+  }
+}
+
+.home{
+  .contact{
+    padding-top: 160px;
+    &__decorative{
+      top: -140px;
+    }
+  }
+}
+
+@media screen and(max-width: 1250px) {
+  .intro{
+    &__inner{
+      padding-top: 30px;
+    }
+    h1{
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+    }
+    &__img{
+      margin-bottom: -5%;
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .intro{
+    &__inner{
+      flex-direction: column;
+      position: relative;
+      padding: 15px 5px 0;
+    }
+    &__img{
+      max-width: 350px;
+      margin: 0 auto;
+      padding-bottom: 50px;
+    }
+    h1{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      bottom: 15px;
+      left: 10px;
+      min-width: 349px;
+    }
+  }
+}
+
+@media screen and(max-width: 576px) {
+  .intro{
+    padding-bottom: 50px;
+  }
+  .home .contact{
+    padding-top: 130px;
+  }
+}
+
+@import 'cards';

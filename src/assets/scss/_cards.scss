@@ -1,0 +1,321 @@
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  &__title{
+    max-width: 110px;
+    width: 100%;
+    position: relative;
+    p{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100px;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      margin: 0;
+      color: $btn;
+      font-size: 24px;
+      line-height: 26px;
+      font-family: $Archivo;
+      height: 110px;
+
+    }
+  }
+  &__filters{
+    max-width: 350px;
+    margin-right: 10px;
+    padding: 50px 30px 60px;
+    width: 100%;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px;
+
+    &__block{
+      margin-bottom: 45px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    &__title{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: $Archivo;
+      font-size: 22px;
+      line-height: 24px;
+      text-transform: capitalize;
+      margin-bottom: 34px;
+    }
+    &__counter{
+      font-size: 12px;
+      line-height: 13px;
+      font-family: $ArchivoLight;
+      color: $blue;
+    }
+    &__all{
+      margin-top: 26px;
+      color: $blue;
+      cursor: pointer;
+    }
+
+    &__inputs{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      input{
+        border: 1px solid #EDEDED;
+        width: 55px;
+        height: 27px;
+        text-align: center;
+        color: $blue;
+        border-radius: 3px;
+        font-size: 14px;
+        line-height: 16px;
+        font-family: $Courier;
+      }
+    }
+    .checkbox{
+      display: flex;
+      position: relative;
+      padding-left: 40px;
+      height: 26px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      input{
+        visibility: hidden;
+        & ~ span{
+          &:before, &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &:after{
+            width: 18px;
+            height: 18px;
+            left: 3px;
+            background-color: transparent;
+            transition: background-color .3s;
+            border-radius: 3px;
+          }
+          &:before{
+            width: 22px;
+            height: 22px;
+            left: 0;
+            border: 1px solid $black;
+            border-radius: 3px;
+          }
+        }
+        &:checked ~ span{
+          &:after{
+            background-color: $blue;
+          }
+        }
+      }
+    }
+  }
+
+  &__main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: calc(100% - 470px);
+   margin: 0 -14px;
+    padding-left: 30px;
+    padding-top: 110px;
+  }
+
+  &__order{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &__more{
+    width: 238px;
+    height: 58px;
+    margin: 20px auto 0;
+    svg{
+      margin-left: 16px;
+    }
+  }
+
+}
+.card{
+  max-width: 233px;
+  width: calc(33.33% - 28px);
+  margin: 0 14px 50px;
+  &__title{
+    font-size: 22px;
+    line-height: 25px;
+    margin: 20px 0 0;
+  }
+  &__options{
+    margin: 12px 0 0;
+    text-transform: capitalize;
+  }
+  &__thumbnail{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    padding: 25px;
+    width: 100%;
+    height: 220px;
+    border-radius: 11px;
+    background-color: $btn;
+    color: $white;
+    font-family: $Archivo;
+    transition: background-color .4s;
+
+    &__icon{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 24px;
+      right: 16px;
+      width: 37px;
+      height: 37px;
+      border-radius: 50%;
+      background-color: $white;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    &__title{
+      font-size: 45px;
+      line-height: 49px;
+      margin: 0;
+    }
+    &__text{
+      font-size: 24px;
+      line-height: 26px;
+      margin: 4px 0;
+    }
+    .desktop & {
+      &:hover{
+        background-color: $blue;
+        .card__thumbnail__icon{
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 1250px) {
+  .cards{
+    &__title{
+      max-width: unset;
+      width: 100%;
+      p{
+        position: static;
+        transform: none;
+        height: auto;
+        margin-bottom: 40px;
+      }
+    }
+    &__filters{
+      max-width: 300px;
+    }
+    &__main{
+      width: calc(calc(100% - 300px));
+    }
+  }
+  .card{
+    max-width: unset;
+    width: calc(50% - 28px);
+  }
+}
+
+@media screen and(max-width: 1024px) {
+  .cards{
+    flex-direction: column;
+    &__order{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      .v-select{
+        order: 1;
+        margin-left: 0;
+        min-width: 220px;
+      }
+    }
+    .filters__icon{
+      order: 2;
+      span{
+        &:nth-child(2){
+          width: 60%;
+          left: 20%;
+        }
+        &:nth-child(3){
+          left: 40%;
+          width: 20%;
+        }
+      }
+      &.opened{
+        span{
+          &:nth-child(1){
+            top: 8px;
+          }
+          &:nth-child(3){
+            left: 0;
+            width: 100%;
+          }
+        }
+      }
+
+    }
+    &__filters{
+      max-height: 0;
+      overflow: hidden;
+      max-width: unset;
+      width: 100%;
+      padding: 0;
+      transition: max-height .4s;
+      opacity: 0;
+      &.opened{
+        opacity: 1;
+        max-height: 2000px;
+        padding: 50px 30px 60px
+      }
+      &__block{
+        max-width: 350px;
+      }
+    }
+    &__main{
+      width: auto;
+      padding-left: 0;
+      padding-top: 30px;
+    }
+  }
+  .card{
+    max-width: unset;
+    width: calc(33.333% - 28px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card{
+    width: calc(50% - 28px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cards{
+    &__main{
+      margin: 0;
+    }
+  }
+  .card{
+    width: 100%;
+    margin: 0 0 50px;
+  }
+}
