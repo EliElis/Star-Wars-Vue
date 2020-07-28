@@ -7,15 +7,15 @@
         <nav class="footer__nav">
             <ul>
                 <li>
-                    <a class="js-anchor" href="#hero">{{nav.hero}}</a></li>
+                    <router-link class="js-anchor" :to="{path: '/', hash:'#hero'}">{{nav.hero}}</router-link>
                 <li>
-                    <a class="js-anchor" href="#list">{{nav.list}}</a>
+                    <router-link  class="js-anchor" :to="{path: '/', hash:'#list'}">{{nav.list}}</router-link>
                 </li>
                 <li>
-                    <a class="js-anchor" href="#form">{{nav.form}}</a>
+                    <router-link  class="js-anchor" :to="{path: '/', hash:'#form'}">{{nav.form}}</router-link>
                 </li>
                 <li>
-                    <a class="js-anchor" href="#footer">{{nav.footer}}</a>
+                    <router-link  class="js-anchor" :to="{path: '/', hash:'#footer'}">{{nav.footer}}</router-link>
                 </li>
             </ul>
             <a @click="scrollToTop" class="btn footer__btn">{{to_top}}</a>
